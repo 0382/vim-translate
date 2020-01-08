@@ -13,7 +13,8 @@ def isenglish(words):
 
 #英译汉
 def youdao_en_to_ch(words):
-    youdao_URL = 'http://dict.youdao.com/w/{0}/#keyfrom=dict2.top'.format(words)
+    urlwords = parse.urlencode({'':words})[1:]
+    youdao_URL = 'http://dict.youdao.com/w/{0}/#keyfrom=dict2.top'.format(urlwords)
     response = request.urlopen(youdao_URL)
     html = response.read().decode('utf-8')
     soup = BeautifulSoup(html, 'html5lib')    
