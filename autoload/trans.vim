@@ -114,9 +114,11 @@ def translate(words):
     except Exception as error:
         print(error)
 EOF
+
 function! trans#Mytranslate(words)
 python3 << EOF
 words = vim.eval("a:words")
 translate(words)
 EOF
 endfunction
+
